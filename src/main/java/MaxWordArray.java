@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 
-public class Arrays {
+public class MaxWordArray {
 
     private static Scanner getArr = new Scanner(System.in);
 
@@ -27,11 +27,11 @@ public class Arrays {
                 System.out.println("Введите целое число от 1 до 1000");
                 getArr.next();
             }
-        } while (!(getArr.hasNextInt()) && (getArr.nextInt()>=1000));
+        } while (!(getArr.hasNextInt()) && (getArr.nextInt()>=1000) && (getArr.nextInt()<=0));
         String[] arr = new String[getArr.nextInt()];
         System.out.println("Введите элементы массива через Enter");
         for (int i = 0; i<arr.length; i++){
-            /* не прокатило...
+            /* не разобрался, не работает
             while (!getArr.hasNext("[a-z]")){
                 System.out.println("Программа подерживает только буквенный ввод");
                 getArr.next();
@@ -44,8 +44,8 @@ public class Arrays {
 
     public static int MaxElem(String[] arr){
         int nom = 0;
-        for (int i = 0; i < arr.length; i++){
-            if (arr[nom].length() < arr[i].length()){
+        for (int i = 0; i < (arr.length - 1); i++){
+            if (arr[nom].length() < arr[i+1].length()){
                 nom = i;
             }
         }

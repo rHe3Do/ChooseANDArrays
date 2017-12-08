@@ -21,7 +21,7 @@ public class Program {
                     kalk.run();
                     break;
                 case '2':
-                    Arrays arr = new Arrays();
+                    MaxWordArray arr = new MaxWordArray();
                     arr.run();
                     break;
             }
