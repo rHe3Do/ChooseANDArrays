@@ -6,10 +6,17 @@ public class SwapMinMaxArr {
     private static Scanner getArr = new Scanner(System.in);
     //private static int[] arr = new int[20];
 
-    public static void main(String[] args){
+    public void start(){
         int[] arr = GetArray();
+        System.out.print("Изначальный массив: ");
         for (int i = 0; i < arr.length; i++){
             System.out.print(arr[i] + " ");
+        }
+        int[] arrch = MinMaxSwap(arr);
+        System.out.println();
+        System.out.print("Измененный массив: ");
+        for (int i = 0; i < arrch.length; i++){
+            System.out.print(arrch[i] + " ");
         }
     }
 
@@ -44,17 +51,33 @@ public class SwapMinMaxArr {
                     arr[i] = getArr.nextInt();
                 }
                 break;
-            }
             */
+        }
         return arr;
     }
 
-    public String[] MinMaxSwap(String[] arr){
-        int minplus, maxminus, buf;
-        for (int i = 0; i < arr.length; i++){
-
-
-        }
-        return arr;
+    public static int[] MinMaxSwap(int[] arr){
+            int min = -1;
+            int max = -1;
+            for (int i = 1; i < arr.length - 1; i++) {
+                if ((arr[i] < 0) && (max == -1)){
+                    max = i;
+                }
+                else if ((arr[i] < 0) && (arr[i] > arr[max])){
+                    max = i;
+                }
+                else if ((arr[i] > 0) && (min == -1)){
+                    min = i;
+                }
+                else if ((arr[i] > 0) && (arr[i] < arr[min])){
+                    min = i;
+                }
+            }
+            System.out.print(max + ": " + arr[max]);
+            System.out.print(min + ": " + arr[min]);
+            int buf = arr[min];
+            arr[min] = arr[max];
+            arr[max] = buf;
+            return arr;
     }
 }

@@ -10,9 +10,9 @@ public class Program {
         //char ch = '0';
         do {
             System.out.println("Выберите интересующую Вас операцию:");
-            System.out.println("1 - Калькулятор; 2 - Поиск максимального элемента в массиве");
-            while (!getChose.hasNext("[12]")) {
-                System.out.println("Введите число 1 или 2");
+            System.out.println("1 - Калькулятор; 2 - Поиск максимального элемента в массиве; 3 - замена максимального и минимального элемента в массиве местами");
+            while (!getChose.hasNext("[123]")) {
+                System.out.println("Введите число 1 или 2 или 3");
                 getChose.next();
             }
             switch (getChose.next().charAt(0)) {
@@ -23,6 +23,10 @@ public class Program {
                 case '2':
                     MaxWordArray arr = new MaxWordArray();
                     arr.run();
+                    break;
+                case '3':
+                    SwapMinMaxArr arrSwap = new SwapMinMaxArr();
+                    arrSwap.start();
                     break;
             }
             System.out.println("Перейти к выбору новой операции(y) или  закрыть программу(n)");
